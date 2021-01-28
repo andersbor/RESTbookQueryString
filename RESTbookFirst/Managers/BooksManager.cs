@@ -1,0 +1,49 @@
+﻿using System.Collections.Generic;
+using RESTbookFirst.Models;
+
+namespace RESTbookFirst.Managers
+{
+    public class BooksManager
+    {
+        private static int _nextId = 1;
+        private static readonly List<Book> Data = new List<Book>
+        {
+            new Book {Id = _nextId++, Title = "C# is nice", Price = 12.34},
+            new Book {Id=_nextId++, Title = "Python is even nicer", Price = 22.33}
+        };
+
+        public List<Book> GetAll()
+        {
+            return new List<Book>(Data); // copy constructor
+        }
+
+        public Book GetById(int id)
+        {
+            return Data.Find(book => book.Id == id);
+        }
+
+        public Book Add(Book newBook)
+        {
+            newBook.Id = _nextId++;
+            Data.Add(newBook);
+            return newBook;
+        }
+
+        public Book Delete(int id)
+        {
+            Book book = Data.Find(book1 => book1.Id == id);
+            if (book == null) return null;
+            Data.Remove(book);
+            return book;
+        }
+
+        public Book Update(int id, Book updates)
+        {
+            Book book = Data.Find(book1 => book1.Id == id);
+            if (book == null) return null;
+            book.Title = updates.Title;
+            book.Price = updates.Price;
+            return book;
+        }
+    }
+}

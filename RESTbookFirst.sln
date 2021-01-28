@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTbookFirst", "RESTbookFirst\RESTbookFirst.csproj", "{8873B4AD-C8F5-4431-BE6D-8CAD412D237E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTbookFirstTests", "RESTbookFirstTests\RESTbookFirstTests.csproj", "{186DC962-60F9-4034-AA96-22566BF96281}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8873B4AD-C8F5-4431-BE6D-8CAD412D237E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8873B4AD-C8F5-4431-BE6D-8CAD412D237E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8873B4AD-C8F5-4431-BE6D-8CAD412D237E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8873B4AD-C8F5-4431-BE6D-8CAD412D237E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186DC962-60F9-4034-AA96-22566BF96281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186DC962-60F9-4034-AA96-22566BF96281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186DC962-60F9-4034-AA96-22566BF96281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186DC962-60F9-4034-AA96-22566BF96281}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {067FF282-5A55-4C91-AD5D-B84BB4EB6211}
+	EndGlobalSection
+EndGlobal

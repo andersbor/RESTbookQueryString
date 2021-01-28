@@ -10,11 +10,14 @@ namespace RESTbookFirst.Managers
         {
             new Book {Id = _nextId++, Title = "C# is nice", Price = 12.34},
             new Book {Id=_nextId++, Title = "Python is even nicer", Price = 22.33}
+            // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
         };
 
         public List<Book> GetAll()
         {
-            return new List<Book>(Data); // copy constructor
+            return new List<Book>(Data); 
+            // copy constructor
+            // Callers should no get a reference to the Data object, but rather get a copy
         }
 
         public Book GetById(int id)

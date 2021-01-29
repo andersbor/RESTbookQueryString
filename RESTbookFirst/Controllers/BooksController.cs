@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using RESTbookFirst.Managers;
-using RESTbookFirst.Models;
+using RESTbookQueryString.Managers;
+using RESTbookQueryString.Models;
 
-namespace RESTbookFirst.Controllers
+namespace RESTbookQueryString.Controllers
 {
     [Route("api/[controller]")]
     // the controller is available on ..../api/books

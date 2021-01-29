@@ -1,4 +1,4 @@
-﻿namespace RESTbookFirst.Models
+﻿namespace RESTbookQueryString.Models
 {
     public class Book
     {

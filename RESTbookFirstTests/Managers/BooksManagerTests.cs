@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RESTbookFirst.Models;
+using RESTbookQueryString.Models;
 
-namespace RESTbookFirst.Managers.Tests
+namespace RESTbookQueryString.Managers.Tests
 {
     [TestClass]
     public class BooksManagerTests

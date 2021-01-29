@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using RESTbookFirst.Models;
+using RESTbookQueryString.Models;
 
-namespace RESTbookFirst.Managers
+namespace RESTbookQueryString.Managers
 {
     public class BooksManager
     {

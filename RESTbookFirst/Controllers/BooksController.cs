@@ -15,9 +15,10 @@ namespace RESTbookFirst.Controllers
 
         // GET: api/<BooksController>
         [HttpGet]
-        public IEnumerable<Book> Get()
+        public IEnumerable<Book> Get([FromQuery] string title)
         {
-            return _manager.GetAll();
+            return _manager.GetAll(title);
+
         }
 
         // GET api/<BooksController>/5

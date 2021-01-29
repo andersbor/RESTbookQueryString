@@ -13,11 +13,15 @@ namespace RESTbookFirst.Managers
             // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
         };
 
-        public List<Book> GetAll()
+        public List<Book> GetAll(string title=null)
         {
-            return new List<Book>(Data); 
+            List<Book> books =  new List<Book>(Data); 
             // copy constructor
             // Callers should no get a reference to the Data object, but rather get a copy
+
+            if (title != null) books = books.FindAll(book => book.Title.StartsWith(title));
+
+            return books;
         }
 
         public Book GetById(int id)

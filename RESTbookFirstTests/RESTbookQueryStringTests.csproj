@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RESTbookFirst\RESTbookFirst.csproj" />
+    <ProjectReference Include="..\RESTbookFirst\RESTbookQueryString.csproj" />
   </ItemGroup>
 
 </Project>

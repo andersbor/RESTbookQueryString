@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RESTbookFirst.Models;
 
@@ -15,7 +16,7 @@ namespace RESTbookFirst.Managers.Tests
             BooksManager manager = new BooksManager();
 
             List<Book> allBooks = manager.GetAll();
-            Assert.AreEqual(2, allBooks.Count);
+            Assert.AreEqual(3, allBooks.Count);
 
             Book book = manager.GetById(1);
             Assert.AreEqual("C# is nice", book.Title);
@@ -24,8 +25,8 @@ namespace RESTbookFirst.Managers.Tests
 
             Book newBook = new Book { Title = "Android Programing", Price = 17.85 };
             Book addedBook = manager.Add(newBook);
-            Assert.AreEqual(3, addedBook.Id);
-            Assert.AreEqual(3, manager.GetAll().Count);
+            Assert.AreEqual(4, addedBook.Id);
+            Assert.AreEqual(4, manager.GetAll().Count);
 
             Book updates = new Book { Title = "Android Programming", Price = 18.1 };
             Book updatedBook = manager.Update(3, updates);
@@ -35,11 +36,27 @@ namespace RESTbookFirst.Managers.Tests
 
             Book deletedBook = manager.Delete(3);
             Assert.AreEqual("Android Programming", deletedBook.Title);
-            Assert.AreEqual(2, manager.GetAll().Count);
+            Assert.AreEqual(3, manager.GetAll().Count);
 
             Assert.IsNull(manager.Delete(100));
         }
 
+        [TestMethod]
+        public void QueryStringTest()
+        {
+            BooksManager manager = new BooksManager();
 
+            List<Book> Cbooks = manager.GetAll(title: "C");
+            Assert.AreEqual(2, Cbooks.Count);
+
+            List<Book> noBooks = manager.GetAll(title: "None");
+            Assert.AreEqual(0, noBooks.Count);
+
+            List<Book> sortTitle = manager.GetAll(sortBy: "title");
+            Assert.AreEqual("ABC for beginners", sortTitle[0].Title);
+
+            List<Book> sortPrice = manager.GetAll(sortBy: "Price");
+            Assert.AreEqual("C# is nice", sortPrice[0].Title);
+        }
     }
 }

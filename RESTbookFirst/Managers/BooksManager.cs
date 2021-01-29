@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RESTbookFirst.Models;
 
 namespace RESTbookFirst.Managers
@@ -9,18 +10,36 @@ namespace RESTbookFirst.Managers
         private static readonly List<Book> Data = new List<Book>
         {
             new Book {Id = _nextId++, Title = "C# is nice", Price = 12.34},
-            new Book {Id=_nextId++, Title = "Python is even nicer", Price = 22.33}
+            new Book {Id=_nextId++, Title = "C# advanced", Price = 22.33},
+            new Book {Id = _nextId++, Title = "ABC for beginners", Price= 19.95}
             // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
         };
 
-        public List<Book> GetAll(string title=null)
+        public List<Book> GetAll(string title = null, string sortBy = null)
+        // Optional parameters
+        // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
         {
-            List<Book> books =  new List<Book>(Data); 
+            List<Book> books = new List<Book>(Data);
             // copy constructor
             // Callers should no get a reference to the Data object, but rather get a copy
 
-            if (title != null) books = books.FindAll(book => book.Title.StartsWith(title));
-
+            if (title != null)
+            {
+                books = books.FindAll(book => book.Title.StartsWith(title));
+            }
+            if (sortBy != null)
+            {
+                switch (sortBy.ToLower())
+                {
+                    case "title":
+                        books = books.OrderBy(book => book.Title).ToList();
+                        break;
+                    case "price":
+                        books = books.OrderBy(book => book.Price).ToList();
+                        break;
+                    // skip any other properties in the query string
+                }
+            }
             return books;
         }
 

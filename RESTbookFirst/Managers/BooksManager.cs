@@ -25,7 +25,7 @@ namespace RESTbookQueryString.Managers
 
             if (title != null)
             {
-                books = books.FindAll(book => book.Title.StartsWith(title));
+                books = books.FindAll(book => book.Title != null && book.Title.StartsWith(title));
             }
             if (sortBy != null)
             {
@@ -37,7 +37,7 @@ namespace RESTbookQueryString.Managers
                     case "price":
                         books = books.OrderBy(book => book.Price).ToList();
                         break;
-                    // skip any other properties in the query string
+                        // skip any other properties in the query string
                 }
             }
             return books;
